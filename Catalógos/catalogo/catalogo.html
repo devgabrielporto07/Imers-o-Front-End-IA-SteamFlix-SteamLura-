@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Steam Flix - Catálogo</title>
+    <link rel="stylesheet" href="catalogo.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <!-- Navbar com Logo Steam Flix e Botão de Tema -->
+    <header class="navbar" id="navbar">
+        <div class="navbar-left">
+            <!-- Logo Steam Flix com estilo similar ao do projeto principal -->
+            <div class="logo" id="logoBtn" title="Voltar aos Perfis">
+                <span class="logo-steam">STEAM</span>
+                <span class="logo-flix">FLIX</span>
+            </div>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="#" class="active">Início</a></li>
+                    <li><a href="#séries">Séries</a></li>
+                    <li><a href="#maratonas">Maratonas</a></li>
+                    <li><a href="#jogos">Jogos Steam</a></li>
+                </ul>
+            </nav>
+        </div>
+        <div class="navbar-right">
+            <!-- Botão de Tema Escuro/Claro -->
+            <button class="theme-toggle" id="themeToggle" title="Alternar Tema">
+                <i class="fas fa-sun sun-icon"></i>
+                <i class="fas fa-moon moon-icon"></i>
+            </button>
+            <!-- Nome do Perfil -->
+            <span class="perfil-nome" id="perfilNome">Pedro</span>
+            <!-- Menu de Perfil com voltar -->
+            <a href="#" class="profile-menu" id="profileMenu" title="Sair">
+                <img class="profile-icon" id="profileIcon" src="" alt="Perfil">
+                <i class="fas fa-caret-down icon" style="font-size: 14px; margin-left: 5px;"></i>
+            </a>
+        </div>
+    </header>
+
+    <!-- Container Principal com Carrosséis -->
+    <main class="sliders-container" id="main-content">
+        <!-- JavaScript injetará as categorias aqui -->
+    </main>
+
+    <!-- Rodapé -->
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2024 Steam Flix - Imersão Alura AI</p>
+            <ul class="footer-links">
+                <li><a href="#">Sobre</a></li>
+                <li><a href="#">Privacidade</a></li>
+                <li><a href="#">Termos de Uso</a></li>
+                <li><a href="#">Contato</a></li>
+            </ul>
+        </div>
+    </footer>
+
+    <!-- Scripts modulares para gerenciar o catálogo -->
+    <script type="module" src="js/main.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,598 @@
+/* ============================================================
+   STEAM FLIX - CATÁLOGO
+   Tema integrado com cores do projeto principal
+   ============================================================ */
+
+:root {
+    /* Cores do Steam Flix - Tema Escuro */
+    --primary-blue: #1a3a52;
+    --secondary-blue: #1e90ff;
+    --accent-blue: #00d4ff;
+    --dark-bg: #0a0e27;
+    --card-bg: #162038;
+    --text-primary: #ffffff;
+    --text-secondary: #b0b8c1;
+    --transition: all 0.3s ease;
+}
+
+/* Tema Claro */
+body.light-theme {
+    --primary-blue: #e8f4f8;
+    --secondary-blue: #1e90ff;
+    --accent-blue: #0088cc;
+    --dark-bg: #f5f5f5;
+    --card-bg: #ffffff;
+    --text-primary: #1a1a1a;
+    --text-secondary: #555555;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', 'Roboto', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    background: linear-gradient(135deg, var(--dark-bg) 0%, #1a2a3a 100%);
+    color: var(--text-primary);
+    overflow-x: hidden;
+    transition: var(--transition);
+}
+
+body.light-theme {
+    background: linear-gradient(135deg, var(--dark-bg) 0%, #e0e0e0 100%);
+}
+
+a {
+    text-decoration: none;
+    color: var(--text-secondary);
+    transition: color 0.3s;
+}
+
+a:hover {
+    color: var(--accent-blue);
+}
+
+/* ============================================================
+   NAVBAR
+   ============================================================ */
+.navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 2rem;
+    height: 70px;
+    z-index: 1000;
+    background: linear-gradient(to right, var(--primary-blue), rgba(30, 144, 255, 0.1));
+    border-bottom: 2px solid var(--secondary-blue);
+    box-shadow: 0 4px 20px rgba(30, 144, 255, 0.2);
+    transition: var(--transition);
+}
+
+body.light-theme .navbar {
+    background: linear-gradient(to right, #e8f4f8, rgba(30, 144, 255, 0.2));
+    box-shadow: 0 4px 20px rgba(30, 144, 255, 0.1);
+}
+
+.navbar-left,
+.navbar-right {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+}
+
+/* Logo Steam Flix */
+.logo {
+    font-size: 1.4rem;
+    font-weight: 800;
+    letter-spacing: 2px;
+    cursor: pointer;
+    transition: var(--transition);
+    display: flex;
+    gap: 0;
+}
+
+.logo-steam {
+    background: linear-gradient(135deg, var(--secondary-blue), var(--accent-blue));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.logo-flix {
+    background: linear-gradient(135deg, var(--accent-blue), var(--secondary-blue));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.logo:hover {
+    transform: scale(1.05);
+    text-shadow: 0 0 20px rgba(30, 144, 255, 0.3);
+}
+
+/* Navegação */
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 1.5rem;
+    font-size: 0.9rem;
+}
+
+.nav-links a {
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    transition: var(--transition);
+}
+
+.nav-links a.active,
+.nav-links a:hover {
+    color: var(--accent-blue);
+    background: rgba(30, 144, 255, 0.1);
+}
+
+/* Botão de Tema */
+.theme-toggle {
+    background: var(--card-bg);
+    border: 2px solid var(--secondary-blue);
+    padding: 0.6rem 0.8rem;
+    border-radius: 8px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-primary);
+    transition: var(--transition);
+    font-size: 1.1rem;
+    position: relative;
+}
+
+.theme-toggle:hover {
+    background: var(--secondary-blue);
+    color: white;
+    transform: rotate(20deg) scale(1.1);
+}
+
+.sun-icon {
+    position: absolute;
+    opacity: 1;
+}
+
+.moon-icon {
+    position: absolute;
+    opacity: 0;
+}
+
+body.light-theme .theme-toggle .sun-icon {
+    opacity: 0;
+}
+
+body.light-theme .theme-toggle .moon-icon {
+    opacity: 1;
+}
+
+/* Nome do Perfil */
+.perfil-nome {
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: var(--text-primary);
+}
+
+/* Menu de Perfil */
+.profile-menu {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    cursor: pointer;
+}
+
+.profile-icon {
+    width: 32px;
+    height: 32px;
+    border-radius: 4px;
+    border: 2px solid var(--secondary-blue);
+}
+
+/* ============================================================
+   CONTAINER PRINCIPAL
+   ============================================================ */
+main {
+    flex: 1;
+    padding: 6rem 2rem 4rem;
+    position: relative;
+    z-index: 3;
+}
+
+.sliders-container {
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.slider-section {
+    margin-bottom: 3rem;
+}
+
+.slider-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 1rem;
+}
+
+.slider-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--text-primary);
+}
+
+/* Indicadores do Slider */
+.slider-indicators {
+    display: flex;
+    gap: 2px;
+    margin-bottom: 8px;
+}
+
+.slider-indicators div {
+    width: 12px;
+    height: 2px;
+    background-color: rgba(30, 144, 255, 0.3);
+}
+
+.slider-indicators div.active {
+    background-color: var(--accent-blue);
+}
+
+/* ============================================================
+   CARROSSÉIS E CARTÕES
+   ============================================================ */
+.movie-row {
+    display: flex;
+    gap: 12px;
+    overflow-x: auto;
+    overflow-y: visible;
+    padding: 10px 0 50px 0;
+    scroll-behavior: smooth;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+.movie-row::-webkit-scrollbar {
+    display: none;
+}
+
+.movie-card {
+    min-width: 250px;
+    width: 250px;
+    height: 140px;
+    background: var(--card-bg);
+    border-radius: 8px;
+    cursor: pointer;
+    transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94), 
+                border-radius 0.3s, 
+                z-index 0.3s, 
+                box-shadow 0.3s;
+    position: relative;
+    z-index: 1;
+    transform-origin: center center;
+    border: 1px solid rgba(30, 144, 255, 0.2);
+    overflow: hidden;
+}
+
+.movie-card.origin-left {
+    transform-origin: left center;
+}
+
+.movie-card.origin-right {
+    transform-origin: right center;
+}
+
+.movie-card:hover {
+    transform: scale(1.5) translateY(-5%);
+    z-index: 99;
+    border-radius: 12px;
+    box-shadow: 0 12px 40px rgba(30, 144, 255, 0.6);
+    border-color: var(--accent-blue);
+}
+
+body.light-theme .movie-card:hover {
+    box-shadow: 0 12px 40px rgba(30, 144, 255, 0.3);
+}
+
+.movie-card img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 8px;
+    transition: opacity 0.3s ease, border-radius 0.3s;
+    z-index: 2;
+}
+
+.movie-card:hover img {
+    border-radius: 12px 12px 0 0;
+    filter: brightness(1.2) contrast(1.1);
+}
+
+/* Detalhes do Cartão (Hover) */
+.card-details {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background: linear-gradient(180deg, var(--card-bg), rgba(6, 14, 39, 0.95));
+    border-bottom-left-radius: 12px;
+    border-bottom-right-radius: 12px;
+    padding: 16px 12px;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s 0s, visibility 0.3s 0s;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.9);
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    z-index: 2;
+    cursor: default;
+}
+
+.movie-card:hover .card-details {
+    opacity: 1;
+    visibility: visible;
+    transition: opacity 0.2s 0.3s, visibility 0s 0.3s;
+}
+
+.details-buttons {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 8px;
+}
+
+.left-buttons,
+.right-buttons {
+    display: flex;
+    gap: 6px;
+}
+
+.btn-icon {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background-color: rgba(30, 144, 255, 0.2);
+    border: 1px solid var(--secondary-blue);
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    font-size: 12px;
+    transition: var(--transition);
+}
+
+.btn-icon:hover {
+    background-color: var(--secondary-blue);
+    transform: scale(1.1);
+}
+
+.btn-play-icon {
+    background-color: var(--accent-blue);
+    border: none;
+    color: black;
+    font-weight: bold;
+}
+
+.btn-play-icon:hover {
+    background-color: #00e5ff;
+    box-shadow: 0 0 12px rgba(0, 212, 255, 0.6);
+}
+
+/* Info dos Detalhes */
+.details-info {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 11px;
+    font-weight: bold;
+    color: var(--text-secondary);
+}
+
+.match-score {
+    color: #00d68f;
+}
+
+.details-tags {
+    display: flex;
+    gap: 6px;
+    font-size: 11px;
+    color: var(--text-secondary);
+    flex-wrap: wrap;
+}
+
+/* Badges */
+.badge-top10 {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 28px;
+    height: 32px;
+    background: linear-gradient(135deg, var(--secondary-blue), var(--accent-blue));
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    z-index: 4;
+    border-bottom-left-radius: 4px;
+    box-shadow: 0 4px 12px rgba(30, 144, 255, 0.6);
+    font-family: Arial, sans-serif;
+}
+
+.badge-top10 span.top {
+    font-size: 7px;
+    letter-spacing: 0.5px;
+}
+
+.badge-top10 span.number {
+    font-size: 14px;
+}
+
+/* Progress Bar */
+.progress-bar-container {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background-color: rgba(30, 144, 255, 0.3);
+    z-index: 5;
+    border-bottom-radius: 8px;
+}
+
+.progress-value {
+    height: 100%;
+    background: linear-gradient(90deg, var(--secondary-blue), var(--accent-blue));
+}
+
+/* ============================================================
+   RODAPÉ
+   ============================================================ */
+footer {
+    background: var(--primary-blue);
+    padding: 2rem;
+    text-align: center;
+    border-top: 2px solid var(--secondary-blue);
+    margin-top: auto;
+    color: var(--text-secondary);
+    font-size: 0.85rem;
+    transition: var(--transition);
+}
+
+body.light-theme footer {
+    background: #d0e8f2;
+    color: #333333;
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.footer-content p {
+    margin-bottom: 1rem;
+}
+
+.footer-links {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1.5rem;
+}
+
+.footer-links a {
+    transition: var(--transition);
+}
+
+.footer-links a:hover {
+    color: var(--accent-blue);
+}
+
+/* ============================================================
+   RESPONSIVIDADE
+   ============================================================ */
+@media (max-width: 1024px) {
+    .movie-card {
+        min-width: 200px;
+        width: 200px;
+        height: 113px;
+    }
+
+    .slider-title {
+        font-size: 1.2rem;
+    }
+
+    .nav-links {
+        gap: 1rem;
+        font-size: 0.85rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .navbar {
+        flex-wrap: wrap;
+        gap: 0.5rem;
+        padding: 0.5rem 1rem;
+        height: auto;
+    }
+
+    .navbar-left {
+        flex: 1 1 100%;
+        gap: 1rem;
+    }
+
+    .nav-links {
+        display: none;
+    }
+
+    main {
+        padding: 4rem 1rem 2rem;
+    }
+
+    .movie-card {
+        min-width: 150px;
+        width: 150px;
+        height: 85px;
+    }
+
+    .slider-title {
+        font-size: 1rem;
+    }
+
+    .perfil-nome {
+        display: none;
+    }
+}
+
+@media (max-width: 480px) {
+    .navbar {
+        padding: 0.5rem;
+    }
+
+    .logo {
+        font-size: 1rem;
+        letter-spacing: 1px;
+    }
+
+    .navbar-left {
+        gap: 0.5rem;
+    }
+
+    .theme-toggle {
+        padding: 0.4rem 0.6rem;
+        font-size: 0.9rem;
+    }
+
+    .movie-card {
+        min-width: 120px;
+        width: 120px;
+        height: 68px;
+    }
+
+    main {
+        padding: 3rem 0.5rem 2rem;
+    }
+
+    .slider-title {
+        font-size: 0.9rem;
+    }
+
+    .movie-row {
+        gap: 8px;
+    }
+}
